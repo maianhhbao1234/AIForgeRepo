@@ -1,14 +1,16 @@
-const senderSignature = aptos.transaction.sign({ signer: alice, transaction });
-
-// Sponsor signs
-const sponsorSignature = aptos.transaction.signAsFeePayer({
-  signer: sponsor,
-  transaction,
-});
-
-// Submit the transaction to chain
-const committedTxn = await aptos.transaction.submit.simple({
-  transaction,
-  senderAuthenticator: senderSignature,
-  feePayerAuthenticator: sponsorSignature,
-});
+function longestPalindrome(s) {
+  const map = new Map();
+  let hasOdd = false;
+  let result = 0;
+  for (const char of s) {
+    map.set(char, (map.get(char) || 0) + 1);
+  }
+  for (const count of map.values()) {
+    if (count % 2 === 0) result += count;
+    else {
+      result += count - 1;
+      hasOdd = true;
+    }
+  }
+  return hasOdd ? result + 1 : result;
+}
