@@ -1,1 +1,4 @@
-const drop = (arr, n = 1) => arr.slice(n);
+const fruits = ["apple", "banana", "orange"];
+for (const fruit of fruits) {
+  console.log(fruit);
+}
