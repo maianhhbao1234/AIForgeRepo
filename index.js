@@ -1,1 +1,1 @@
-const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const drop = (arr, n = 1) => arr.slice(n);
